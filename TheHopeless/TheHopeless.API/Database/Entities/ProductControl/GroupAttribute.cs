@@ -1,10 +1,10 @@
 ﻿namespace TheHopeless.API.Database.Entities.ProductControl
 {
-    public class GroupAttribte
+    public class GroupAttribute
     {
         //FKs
-        public int ProductGroupId;
-        public int AttributeId;
+        public int ProductGroupId { get; set; }
+        public int AttributeId { get; set; }
 
         public ProductGroup Group { get; set; }
         public Attribute Attribute { get; set; }

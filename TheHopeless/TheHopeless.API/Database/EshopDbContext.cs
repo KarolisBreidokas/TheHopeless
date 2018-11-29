@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using TheHopeless.API.Database.Entities;
 using TheHopeless.API.Database.Entities.ProductControl;
 
 namespace TheHopeless.API.Database
 {
     public class EshopDbContext : DbContext
     {
-        
+
         public DbSet<Product> ProductSet { get; set; }
         public DbSet<ProductGroup> GroupSet { get; set; }
 
@@ -17,14 +15,19 @@ namespace TheHopeless.API.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            //Product control BLU
             SetUpProduct(modelBuilder);
             SetUpProductAttribute(modelBuilder);
             SetUpProductGroup(modelBuilder);
             SetUpAttribute(modelBuilder);
             SetUpPicture(modelBuilder);
             SetUpGroupAttribte(modelBuilder);
+
+
         }
 
+        #region BLU
         private void SetUpProduct(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<Product>();
@@ -41,7 +44,6 @@ namespace TheHopeless.API.Database
                 .OnDelete(DeleteBehavior.Cascade);
 
         }
-
         private void SetUpProductGroup(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<ProductGroup>();
@@ -52,12 +54,12 @@ namespace TheHopeless.API.Database
                 .WithOne(x => x.Group)
                 .HasForeignKey(x => x.GroupId)
                 .OnDelete(DeleteBehavior.Cascade);
-            entity.HasMany(x => x.Attribtes)
+
+            entity.HasMany(x => x.Attributes)
                 .WithOne(x => x.Group)
                 .HasForeignKey(x => x.ProductGroupId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
-
         private void SetUpAttribute(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<Attribute>();
@@ -71,20 +73,21 @@ namespace TheHopeless.API.Database
                 .HasForeignKey(x => x.AttributeId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
-
         private void SetUpPicture(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<Picture>();
             entity.HasKey(x => x.Id);
         }
-        
         private void SetUpGroupAttribte(ModelBuilder modelBuilder)
         {
-            var entity = modelBuilder.Entity<GroupAttribte>();
+            var entity = modelBuilder.Entity<GroupAttribute>();
+            entity.HasKey(x => new {x.ProductGroupId, x.AttributeId});
         }
         private void SetUpProductAttribute(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<ProductAttribute>();
+            entity.HasKey(x => new {x.AttributeId, x.ProductId});
         }
+        #endregion
     }
 }

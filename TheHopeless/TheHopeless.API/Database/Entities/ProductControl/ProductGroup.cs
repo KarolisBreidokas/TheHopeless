@@ -9,6 +9,6 @@ namespace TheHopeless.API.Database.Entities.ProductControl
         public string Description { get; set; }
 
         public ICollection<Product> Products { get; set; }
-        public ICollection<GroupAttribte> Attribtes { get; set; }
+        public ICollection<GroupAttribute> Attributes { get; set; }
     }
 }
