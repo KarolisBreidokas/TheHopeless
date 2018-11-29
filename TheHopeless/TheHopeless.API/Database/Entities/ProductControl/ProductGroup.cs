@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TheHopeless.API.Database.Entities.ProductControl;
 
-namespace TheHopeless.API.Database.Entities
+namespace TheHopeless.API.Database.Entities.ProductControl
 {
     public class ProductGroup:BaseEntity
     {

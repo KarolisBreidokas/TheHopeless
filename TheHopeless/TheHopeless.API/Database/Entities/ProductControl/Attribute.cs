@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using TheHopeless.API.Database.Entities.ProductControl;
 
-namespace TheHopeless.API.Database.Entities
+namespace TheHopeless.API.Database.Entities.ProductControl
 {
     public class Attribute:BaseEntity
     {
-        //Attributes
+        //Values
         public string Name{get; set; }
 
         public ICollection<GroupAttribte> Groups { get; set; }
-        public ICollection<ProductAttribute> Attributes { get; set; }
+        public ICollection<ProductAttribute> Values { get; set; }
     }
 }

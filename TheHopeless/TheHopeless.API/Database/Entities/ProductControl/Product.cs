@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TheHopeless.API.Database.Entities
+namespace TheHopeless.API.Database.Entities.ProductControl
 {
 
     public class Product:BaseEntity

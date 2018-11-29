@@ -1,8 +1,8 @@
-﻿namespace TheHopeless.API.Database.Entities
+﻿namespace TheHopeless.API.Database.Entities.ProductControl
 {
     public class ProductAttribute
     {
-        //Attributes
+        //Values
         public string Value { get;set; }
         //FKs
         public int ProductId { get; set; }

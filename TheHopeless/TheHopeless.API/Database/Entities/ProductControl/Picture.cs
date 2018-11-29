@@ -1,6 +1,6 @@
 ﻿using TheHopeless.API.Constants;
 
-namespace TheHopeless.API.Database.Entities
+namespace TheHopeless.API.Database.Entities.ProductControl
 {
     public class Picture:BaseEntity
     {
