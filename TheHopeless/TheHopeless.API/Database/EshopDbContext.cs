@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TheHopeless.API.Database.Entities.DeliveryControl;
+using TheHopeless.API.Database.Entities.OrdersControl;
 using TheHopeless.API.Database.Entities.ProductControl;
+using TheHopeless.API.Database.Entities.UserControl;
 
 namespace TheHopeless.API.Database
 {
@@ -27,7 +29,49 @@ namespace TheHopeless.API.Database
 
             //DeliveryControl GRY
             SetUpCurrier(modelBuilder);
+
+            //OrdersControl YEL
+            SetUpOrder(modelBuilder);
+            SetUpProductOrder(modelBuilder);
+
+            //UserContol GRN
         }
+
+        #region GRN
+
+
+        private void SetUp(ModelBuilder modelBuilder)
+        {
+            var entity = modelBuilder.Entity<RegisteredUser>();
+            entity.HasKey(x =>x.Id);
+        }
+
+
+        #endregion
+
+        #region YEL
+        private void SetUpOrder(ModelBuilder modelBuilder)
+        {
+
+            var entity = modelBuilder.Entity<Order>();
+            entity.HasKey(x => x.Id);
+            entity.HasMany(x => x.Products)
+                .WithOne(x => x.Order)
+                .HasForeignKey(x => x.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+        }
+
+        private void SetUpProductOrder(ModelBuilder modelBuilder)
+        {
+            var entity = modelBuilder.Entity<ProductOrder>();
+            entity.HasKey(x =>new {x.OrderId,x.ProductId});
+        }
+
+
+
+        #endregion
+
 
         #region GRY
         private void SetUpCurrier(ModelBuilder modelBuilder)

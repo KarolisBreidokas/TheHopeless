@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Entity Base</Title>
+      <Author>ThineSelf</Author>
+      <Description>Creates Entity definiton carcas</Description>
+      <Shortcut>entity</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+         private void SetUp$end$(ModelBuilder modelBuilder)
+        {
+            var entity = modelBuilder.Entity<$EntityType$>();
+            entity.HasKey(x=>$EntityId$);
+        }
+    ]]>
+      </Code>
+      <Declarations>
+        <Object>
+          <ID>EntityType</ID>
+          <ToolTip>Type of Entity</ToolTip>
+        </Object>
+        <Literal Editable="false">
+          <ID>EntityName</ID>
+        </Literal>
+        <Object>
+          <ID>EntityId</ID>
+          <ToolTip>ID of entiy</ToolTip>
+        </Object>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
