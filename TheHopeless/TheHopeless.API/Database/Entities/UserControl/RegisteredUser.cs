@@ -16,5 +16,6 @@ namespace TheHopeless.API.Database.Entities.UserControl
 
         public ICollection<Order> Orders { get; set; }
         public ICollection<Review> Reviews { get; set; }
+        public Administrator Administrator { get; set; }
     }
 }

@@ -11,6 +11,6 @@ namespace TheHopeless.API.Database.Entities.UserControl
 
         public RegisteredUser User { get; set; }
 
-        public ICollection<>
+        public ICollection<AdministratorPrivilege> Privileges { get; set; }
     }
 }
