@@ -2,6 +2,7 @@
 using TheHopeless.API.Database.Entities.DeliveryControl;
 using TheHopeless.API.Database.Entities.OrdersControl;
 using TheHopeless.API.Database.Entities.ProductControl;
+using TheHopeless.API.Database.Entities.RentalControl;
 using TheHopeless.API.Database.Entities.UserControl;
 
 namespace TheHopeless.API.Database
@@ -39,9 +40,13 @@ namespace TheHopeless.API.Database
             SetUpAdministrator(modelBuilder);
             SetUpPrivilege(modelBuilder);
             SetUpAdministratorPrivilege(modelBuilder);
+
+            //RentalControl ROS
+            SetUpRentalAggrement(modelBuilder);
+            SetUpRentalPaymentType(modelBuilder);
         }
 
-        
+
         #region BLU
         private void SetUpProduct(ModelBuilder modelBuilder)
         {
@@ -63,7 +68,10 @@ namespace TheHopeless.API.Database
                 .HasForeignKey(x => x.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
+            entity.HasMany(x => x.Rentals)
+                .WithOne(x => x.Product)
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
         private void SetUpProductGroup(ModelBuilder modelBuilder)
@@ -117,7 +125,7 @@ namespace TheHopeless.API.Database
             entity.HasKey(x => new { x.AttributeId, x.ProductId });
         }
         #endregion
-        
+
         #region GRY
         private void SetUpCurrier(ModelBuilder modelBuilder)
         {
@@ -172,15 +180,26 @@ namespace TheHopeless.API.Database
         {
             var entity = modelBuilder.Entity<Administrator>();
             entity.HasKey(x => x.UserId);
+
             entity.HasOne(x => x.User)
                 .WithOne(x => x.Administrator)
                 .HasForeignKey<Administrator>(x => x.UserId);
-
 
             entity.HasMany(x => x.Privileges)
                 .WithOne(x => x.Administrator)
                 .HasForeignKey(x => x.AdministratorId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasMany(x => x.Aggrements)
+                .WithOne(x => x.MadeBy)
+                .HasForeignKey(x => x.AdministratorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasMany(x => x.PaymentTypes)
+                .WithOne(x => x.Administers)
+                .HasForeignKey(x => x.AdministratorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
         }
 
@@ -202,5 +221,25 @@ namespace TheHopeless.API.Database
             entity.HasKey(x => new { x.AdministratorId, x.PrivilegeId });
         }
         #endregion
+
+        #region ROS
+        private void SetUpRentalAggrement(ModelBuilder modelBuilder)
+        {
+            var entity = modelBuilder.Entity<RentalAggrement>();
+            entity.HasKey(x => x.Id);
+        }
+
+        private void SetUpRentalPaymentType(ModelBuilder modelBuilder)
+        {
+            var entity = modelBuilder.Entity<RentalPaymentType>();
+            entity.HasKey(x => x.Id);
+
+            entity.HasMany(x => x.Agreements)
+                .WithOne(x => x.PaymentType)
+                .HasForeignKey(x => x.PaymentTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
+        #endregion
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TheHopeless.API.Database.Entities.OrdersControl;
+using TheHopeless.API.Database.Entities.RentalControl;
 
 namespace TheHopeless.API.Database.Entities.ProductControl
 {
@@ -20,5 +21,6 @@ namespace TheHopeless.API.Database.Entities.ProductControl
         public ICollection<Picture> Pictures { get; set; }
         public ICollection<ProductAttribute> Values { get; set; }
         public ICollection<ProductOrder> Orders { get; set; }
+        public ICollection<RentalAggrement> Rentals { get; set; }
     }
 }
