@@ -12,7 +12,7 @@ let myFunction = function(){
     console.log(this.id);
     location.replace('./html/'+this.id+'.html');
     }
-};
+}
 
 window.onload = function(){
 for( let i=0; i < classCol.length; i++){
@@ -27,6 +27,7 @@ let buttonNext = document.getElementById('buttonNext');
 let buttonPrevious = document.getElementById('buttonPrevious');
 let image = document.getElementById('catalogImage');
 this.addListeners();
+this.init();
 
 }
 
@@ -57,5 +58,13 @@ function buttonPressed(){
             i=6;
         }
         }
+    }
+}
+
+function init(){
+    for(let i = 0 ; i<7; i++){
+    let img = new Image();   
+    img.src = './images/' + i + '.jpg';
+    document.getElementById('allProducts').appendChild(img);
     }
 }
