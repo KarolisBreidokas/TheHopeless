@@ -5,7 +5,7 @@
         //FKs
         public int ProductGroupId { get; set; }
         public int AttributeId { get; set; }
-
+        //Foreign entities
         public ProductGroup Group { get; set; }
         public Attribute Attribute { get; set; }
     }

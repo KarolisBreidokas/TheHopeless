@@ -11,7 +11,6 @@ namespace TheHopeless.API.Database.Entities.ProductControl
         public decimal Price { get; set; }
         public string Description{get; set; }
         public bool Sellable { get; set; }
-        
         //FKs
         public int GroupId { get; set; }
         //Foreign entities
