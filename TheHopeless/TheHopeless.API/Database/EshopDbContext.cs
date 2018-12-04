@@ -129,10 +129,10 @@ namespace TheHopeless.API.Database
         #region GRY
         private void SetUpCurrier(ModelBuilder modelBuilder)
         {
-            var entity = modelBuilder.Entity<Curier>();
+            var entity = modelBuilder.Entity<Courier>();
             entity.HasKey(x => x.Id);
             entity.HasMany(x => x.AssignedOrders)
-                .WithOne(x => x.AssignedCurier)
+                .WithOne(x => x.AssignedCourier)
                 .HasForeignKey(x => x.CurrierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

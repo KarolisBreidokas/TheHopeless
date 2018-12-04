@@ -15,7 +15,7 @@ namespace TheHopeless.API.Database.Entities.OrdersControl
         public int? CurrierId { get; set; }
         public int UserId{get; set; }
         //Foreign entities
-        public Curier AssignedCurier { get; set; }
+        public Courier AssignedCourier { get; set; }
         public RegisteredUser User { get; set; }
 
         public ICollection<ProductOrder> Products { get; set; }

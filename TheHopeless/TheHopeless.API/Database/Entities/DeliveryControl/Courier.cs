@@ -7,7 +7,7 @@ using TheHopeless.API.Database.Entities.OrdersControl;
 
 namespace TheHopeless.API.Database.Entities.DeliveryControl
 {
-    public class Curier:BaseEntity
+    public class Courier:BaseEntity
     {
         //attribues
         public string Name { get; set; }
