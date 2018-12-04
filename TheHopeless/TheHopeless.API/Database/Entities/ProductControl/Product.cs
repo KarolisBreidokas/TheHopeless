@@ -1,22 +1,24 @@
 ﻿using System.Collections.Generic;
+using TheHopeless.API.Database.Entities.OrdersControl;
 
 namespace TheHopeless.API.Database.Entities.ProductControl
 {
 
-    public class Product:BaseEntity
+    public class Product : BaseEntity
     {
-        
+
         //attributes
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public string Description{get; set; }
+        public string Description { get; set; }
         public bool Sellable { get; set; }
         //FKs
         public int GroupId { get; set; }
         //Foreign entities
-        public ProductGroup Group { get;set; }
+        public ProductGroup Group { get; set; }
 
         public ICollection<Picture> Pictures { get; set; }
         public ICollection<ProductAttribute> Values { get; set; }
+        public ICollection<ProductOrder> Orders { get; set; }
     }
 }

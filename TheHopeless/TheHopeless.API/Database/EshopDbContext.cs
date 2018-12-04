@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TheHopeless.API.Database.Entities.DeliveryControl;
 using TheHopeless.API.Database.Entities.ProductControl;
 
 namespace TheHopeless.API.Database
@@ -16,7 +17,7 @@ namespace TheHopeless.API.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            //Product control BLU
+            //ProductControl BLU
             SetUpProduct(modelBuilder);
             SetUpProductAttribute(modelBuilder);
             SetUpProductGroup(modelBuilder);
@@ -24,8 +25,23 @@ namespace TheHopeless.API.Database
             SetUpPicture(modelBuilder);
             SetUpGroupAttribte(modelBuilder);
 
-
+            //DeliveryControl GRY
+            SetUpCurrier(modelBuilder);
         }
+
+        #region GRY
+        private void SetUpCurrier(ModelBuilder modelBuilder)
+        {
+            var entity = modelBuilder.Entity<Curier>();
+            entity.HasKey(x => x.Id);
+            entity.HasMany(x => x.AssignedOrders)
+                .WithOne(x => x.AssignedCurier)
+                .HasForeignKey(x => x.CurrierId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
+
+        #endregion
+
 
         #region BLU
         private void SetUpProduct(ModelBuilder modelBuilder)
@@ -42,6 +58,12 @@ namespace TheHopeless.API.Database
                 .WithOne(x => x.Product)
                 .HasForeignKey(x => x.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasMany(x => x.Orders)
+                .WithOne(x => x.Product)
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
         }
         private void SetUpProductGroup(ModelBuilder modelBuilder)
@@ -81,12 +103,12 @@ namespace TheHopeless.API.Database
         private void SetUpGroupAttribte(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<GroupAttribute>();
-            entity.HasKey(x => new {x.ProductGroupId, x.AttributeId});
+            entity.HasKey(x => new { x.ProductGroupId, x.AttributeId });
         }
         private void SetUpProductAttribute(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<ProductAttribute>();
-            entity.HasKey(x => new {x.AttributeId, x.ProductId});
+            entity.HasKey(x => new { x.AttributeId, x.ProductId });
         }
         #endregion
     }

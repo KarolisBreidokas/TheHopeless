@@ -1,4 +1,5 @@
 ﻿using System;
+using TheHopeless.API.Database.Entities.DeliveryControl;
 
 namespace TheHopeless.API.Database.Entities.OrdersControl
 {
@@ -8,5 +9,7 @@ namespace TheHopeless.API.Database.Entities.OrdersControl
         public DateTime Date { get; set; }
         //FKs
         public int? CurrierId { get; set; }
+        //Foreign entities
+        public Curier AssignedCurier { get; set; }
     }
 }
