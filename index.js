@@ -9,8 +9,10 @@ let myFunction = function(){
     document.getElementById('orderedImage').src = source.src;
     }
     else{
+        if(this.id!='deliveryFormView'){
     console.log(this.id);
     location.replace('./html/'+this.id+'.html');
+        }
     }
 }
 
