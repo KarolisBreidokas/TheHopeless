@@ -47,11 +47,12 @@ namespace TheHopeless.API.Database
 
             //DeliveryControl GRY
             SetUpCurrier(modelBuilder);
-            SetUpProductOrder(modelBuilder);
+            SetUpReview(modelBuilder);
 
             //OrdersControl YEL
             SetUpOrder(modelBuilder);
-
+            SetUpProductOrder(modelBuilder);
+            
             //UserContol GRN
             SetUpRegisteredUser(modelBuilder);
             SetUpAdministrator(modelBuilder);
@@ -178,10 +179,6 @@ namespace TheHopeless.API.Database
             var entity = modelBuilder.Entity<Review>();
             entity.HasKey(x => x.Id);
         }
-
-
-
-
 
         #endregion
 
