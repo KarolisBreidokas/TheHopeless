@@ -9,9 +9,26 @@ namespace TheHopeless.API.Database
 {
     public class EshopDbContext : DbContext
     {
+        public DbSet<Courier> Couriers { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
-        public DbSet<Product> ProductSet { get; set; }
-        public DbSet<ProductGroup> GroupSet { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<ProductOrder> ProductOrders { get; set; }
+
+        public DbSet<Attribute> Attributes { get; set; }
+        public DbSet<GroupAttribute> GroupAttributes { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductAttribute> ProductAttributes { get; set; }
+        public DbSet<ProductGroup> ProductGroups { get; set; }
+
+        public DbSet<RentalPaymentType> RentalPaymentTypes { get; set; }
+        public DbSet<RentalAggrement> RentalAggrements { get; set; }
+
+        public DbSet<Administrator> Administrators { get; set; }
+        public DbSet<AdministratorPrivilege> AdministratorPrivileges{get; set; }
+        public DbSet<Privilege> Privileges { get; set; }
+        public DbSet<RegisteredUser> RegisteredUsers { get; set; }
 
         public EshopDbContext(DbContextOptions options) : base(options)
         {
@@ -52,7 +69,6 @@ namespace TheHopeless.API.Database
         {
             var entity = modelBuilder.Entity<Product>();
             entity.HasKey(x => x.Id);
-
             entity.HasMany(x => x.Pictures)
                 .WithOne(x => x.BaseProduct)
                 .HasForeignKey(x => x.ProductId)
