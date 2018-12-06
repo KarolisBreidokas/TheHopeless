@@ -64,7 +64,6 @@ namespace TheHopeless.API.Controllers
             {
                 return NoContent();
             }
-
             return NotFound(id);
         }
 
