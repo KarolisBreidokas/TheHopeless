@@ -1,4 +1,4 @@
-﻿namespace TheHopeless.API.Contracts
+﻿namespace TheHopeless.API.Contracts.ProductController
 {
     public class PictureDto
     {

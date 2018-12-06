@@ -16,11 +16,9 @@ namespace TheHopeless.API.Database
         public DbSet<ProductOrder> ProductOrders { get; set; }
 
         public DbSet<Attribute> Attributes { get; set; }
-        public DbSet<GroupAttribute> GroupAttributes { get; set; }
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductAttribute> ProductAttributes { get; set; }
-        public DbSet<ProductGroup> ProductGroups { get; set; }
 
         public DbSet<RentalPaymentType> RentalPaymentTypes { get; set; }
         public DbSet<RentalAggrement> RentalAggrements { get; set; }
@@ -40,10 +38,8 @@ namespace TheHopeless.API.Database
             //ProductControl BLU
             SetUpProduct(modelBuilder);
             SetUpProductAttribute(modelBuilder);
-            SetUpProductGroup(modelBuilder);
             SetUpAttribute(modelBuilder);
             SetUpPicture(modelBuilder);
-            SetUpGroupAttribte(modelBuilder);
 
             //DeliveryControl GRY
             SetUpCurrier(modelBuilder);
@@ -90,35 +86,13 @@ namespace TheHopeless.API.Database
                 .HasForeignKey(x => x.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
-
-        private void SetUpProductGroup(ModelBuilder modelBuilder)
-        {
-            var entity = modelBuilder.Entity<ProductGroup>();
-
-            entity.HasKey(x => x.Id);
-
-            entity.HasMany(x => x.Products)
-                .WithOne(x => x.Group)
-                .HasForeignKey(x => x.GroupId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasMany(x => x.Attributes)
-                .WithOne(x => x.Group)
-                .HasForeignKey(x => x.ProductGroupId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
-
+        
         private void SetUpAttribute(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<Attribute>();
             entity.HasKey(x => x.Id);
 
             entity.HasMany(x => x.Values)
-                .WithOne(x => x.Attribute)
-                .HasForeignKey(x => x.AttributeId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasMany(x => x.Groups)
                 .WithOne(x => x.Attribute)
                 .HasForeignKey(x => x.AttributeId)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -129,13 +103,7 @@ namespace TheHopeless.API.Database
             var entity = modelBuilder.Entity<Picture>();
             entity.HasKey(x => x.Id);
         }
-
-        private void SetUpGroupAttribte(ModelBuilder modelBuilder)
-        {
-            var entity = modelBuilder.Entity<GroupAttribute>();
-            entity.HasKey(x => new { x.ProductGroupId, x.AttributeId });
-        }
-
+        
         private void SetUpProductAttribute(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<ProductAttribute>();
