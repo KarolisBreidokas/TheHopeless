@@ -61,3 +61,18 @@ div.container{
     text-align: center;
     margin-top:5px;
 }
+
+button{
+    width: 100%;
+}
+
+form{
+    width:100%;
+    text-align: center;
+}
+
+input{
+    width:100%;
+    color: black;
+    border: 2px solid rgb(38, 116, 87);
+}
