@@ -25,12 +25,18 @@ for( let i=0; i < classCol6.length; i++){
     if(classCol6[i].id!='catalogView3' && classCol6[i].id!='catalogView4' && classCol6[i].id!='catalogView')
     classCol6[i].addEventListener('click', myFunction, false);
 }
+let searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', searchOnClick, false);
 let buttonNext = document.getElementById('buttonNext');
 let buttonPrevious = document.getElementById('buttonPrevious');
 let image = document.getElementById('catalogImage');
 this.addListeners();
 this.init();
 
+}
+
+function searchOnClick(){
+    window.alert("Tokio produkto nerasta");
 }
 
 function addListeners(){

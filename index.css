@@ -10,6 +10,14 @@ button{
     width:50px;
 }
 
+#searchButton{
+    width:100%;
+}
+
+#searchBar{
+    width:100%;
+}
+
 #allProducts{
     border: 5px solid yellow;
     max-width: 400px;
