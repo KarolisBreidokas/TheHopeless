@@ -13,6 +13,16 @@ namespace TheHopeless.API.Configurations
             var connectionString = configuration["Database:ConnectionString"];
             services.AddDbContext<EshopDbContext>(opt => opt.UseSqlServer(connectionString));
         }
+        public static void SetUpAutoMapper(this IServiceCollection services)
+        {
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AutomapperConfiguration());
+            });
+            var mapper = config.CreateMapper();
+
+            services.AddSingleton(mapper);
+        }
 
     }
 }
