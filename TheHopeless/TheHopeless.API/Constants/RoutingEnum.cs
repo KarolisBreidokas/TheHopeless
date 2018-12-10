@@ -2,6 +2,8 @@
 {
     public enum RoutingEnum
     {
-        GetProduct
+        GetProduct,
+        GetRentalAgreement,
+        GetRentalReport
     }
 }

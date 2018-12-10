@@ -21,7 +21,7 @@ namespace TheHopeless.API.Database
         public DbSet<ProductAttribute> ProductAttributes { get; set; }
 
         public DbSet<RentalPaymentType> RentalPaymentTypes { get; set; }
-        public DbSet<RentalAggrement> RentalAggrements { get; set; }
+        public DbSet<RentalAgreement> RentalAgreements { get; set; }
 
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<AdministratorPrivilege> AdministratorPrivileges{get; set; }
@@ -56,7 +56,7 @@ namespace TheHopeless.API.Database
             SetUpAdministratorPrivilege(modelBuilder);
 
             //RentalControl ROS
-            SetUpRentalAggrement(modelBuilder);
+            SetUpRentalAgreement(modelBuilder);
             SetUpRentalPaymentType(modelBuilder);
         }
 
@@ -204,9 +204,9 @@ namespace TheHopeless.API.Database
         #endregion
 
         #region ROS
-        private void SetUpRentalAggrement(ModelBuilder modelBuilder)
+        private void SetUpRentalAgreement(ModelBuilder modelBuilder)
         {
-            var entity = modelBuilder.Entity<RentalAggrement>();
+            var entity = modelBuilder.Entity<RentalAgreement>();
             entity.HasKey(x => x.Id);
         }
 

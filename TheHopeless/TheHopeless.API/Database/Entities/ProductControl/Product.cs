@@ -18,6 +18,6 @@ namespace TheHopeless.API.Database.Entities.ProductControl
         public ICollection<Picture> Pictures { get; set; }
         public ICollection<ProductAttribute> Values { get; set; }
         public ICollection<ProductOrder> Orders { get; set; }
-        public ICollection<RentalAggrement> Rentals { get; set; }
+        public ICollection<RentalAgreement> Rentals { get; set; }
     }
 }
