@@ -29,6 +29,7 @@ namespace TheHopeless.API
             
             services.SetUpDatabase(Configuration);
             services.SetUpAutoMapper();
+            services.AddAllDependencies();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
