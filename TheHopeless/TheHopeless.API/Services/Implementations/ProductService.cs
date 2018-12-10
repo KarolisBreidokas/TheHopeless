@@ -23,11 +23,7 @@ namespace TheHopeless.API.Services.Implementations
             _mapper = mapper;
             _products = context.Products;
         }
-
-        private IQueryable includeDependencies(IQueryable set)
-        {
-            return set.
-        }
+        
         public async Task<ICollection<ProductDto>> Get()
         {
             var ans = await IncludeDependencies().ToListAsync();
