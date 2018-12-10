@@ -17,6 +17,6 @@ namespace TheHopeless.API.Database.Entities.RentalControl
         //Forein entities
         public Administrator Administers { get; set; }
 
-        public ICollection<RentalAggrement> Agreements { get; set; }
+        public ICollection<RentalAgreement> Agreements { get; set; }
     }
 }
