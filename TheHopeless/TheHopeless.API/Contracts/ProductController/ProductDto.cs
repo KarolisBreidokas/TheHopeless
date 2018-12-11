@@ -8,6 +8,7 @@ namespace TheHopeless.API.Contracts.ProductController
         public string Name;
         public string Description;
         public bool Sellable;
+        public decimal Price;
         public ICollection<ProductAttributeDto> Attributes;
         public ICollection<PictureDto> Picture;
     }

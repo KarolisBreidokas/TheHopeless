@@ -47,6 +47,8 @@ namespace TheHopeless.API.Services.Implementations
         public async Task<ProductDto> Add(NewProductDto newProduct)
         {
             var entity = _mapper.Map<Product>(newProduct);
+            entity.ProductCount = 0;
+            entity.Sellable = true;
             await MapAttriubes(entity.Values);
             _products.Add(entity);
             await _context.SaveChangesAsync();

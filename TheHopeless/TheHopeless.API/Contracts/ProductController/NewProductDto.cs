@@ -9,6 +9,7 @@ namespace TheHopeless.API.Contracts.ProductController
     {
         public string Name;
         public string Description;
+        public decimal Price;
         public ICollection<NewProductAttributeDto> Attributes;
     }
 }
