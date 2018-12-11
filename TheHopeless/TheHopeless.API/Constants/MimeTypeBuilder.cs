@@ -7,23 +7,36 @@ namespace TheHopeless.API.Constants
 {
     public static class MimeTypeBuilder
     {
+        private static readonly IDictionary<MimeType,string> dictionary=new Dictionary<MimeType, string>()
+        {
+            {MimeType.Gif,"image/gif"},
+            {MimeType.Png,"image/png"},
+            {MimeType.Jpeg,"image/jpeg"},
+            {MimeType.Bmp,"image/bmp"},
+            {MimeType.Webp,"image/webp"},
+        };
+
+        public static MimeType GeMimeType(string type)
+        {
+            var t= dictionary.FirstOrDefault(x => x.Value == type);
+            if (t.Key ==MimeType.NA)
+            {
+                
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+
+            return t.Key;
+        }
         public static string GetString(this MimeType type)
         {
-            switch (type)
+
+            if (dictionary[type] is null)
             {
-                case MimeType.Gif:
-                    return "Image/Gif";
-                case MimeType.Png:
-                    return "Image/Png";
-                case MimeType.Jpeg:
-                    return "Image/Jpeg";
-                case MimeType.Bmp:
-                    return "Image/Bmp";
-                case MimeType.Webp:
-                    return "Image/Webp";
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
+
+            return dictionary[type];
         }
     }
 }

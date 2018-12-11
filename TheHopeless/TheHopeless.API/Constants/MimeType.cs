@@ -2,6 +2,7 @@
 {
     public enum MimeType
     {
+        NA=0,
         Gif,
         Png,
         Jpeg,
