@@ -14,9 +14,8 @@ namespace TheHopeless.API.Services
         Task<RentalAgreementDto> Add(NewRentalAgreementDto newAgreement);
         Task<RentalAgreementDto> Edit(int id, NewRentalAgreementDto product);
         Task<bool> TerminateAgreement(int id);
-        Task<ICollection<RentalPaymentTypeDto>> GetPayment();
-        Task<bool> ChangeState(int id);
-        Task<ICollection<RentalAgreementDto>> Report(int from, int to);
+        Task<string> FindContact(string name);
+        Task<ICollection<RentalAgreementDto>> RentReport(DateTime from, DateTime to);
 
     }
 }

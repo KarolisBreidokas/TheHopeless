@@ -65,27 +65,22 @@ namespace TheHopeless.API.Controllers
             }
             return NotFound(id);
         }
-        [Produces(typeof(ICollection<RentalPaymentTypeDto>))]
-        public async Task<IActionResult> GetPayment()
+        [HttpPost("{id}/Inform")]
+        [Produces(typeof(string))]
+        public async Task<IActionResult> FindContact(string name)
         {
-            var results = await _service.GetPayment();
-
-            return Ok(results);
-        }
-        [HttpPost("{id}/State")]
-        public async Task<IActionResult> State(int id)
-        {
-            if (await _service.ChangeState(id))
+            var result = await _service.FindContact(name);
+            if (result is null)
             {
                 return NoContent();
             }
-            return NotFound(id);
+            return Ok(result);
         }
         [HttpGet("{from}-{to}", Name = nameof(RoutingEnum.GetRentalReport))]
         [Produces(typeof(ICollection<RentalAgreementDto>))]
-        public async Task<IActionResult> Report(int from, int to)
+        public async Task<IActionResult> Report(DateTime from, DateTime to)
         {
-            var results = await _service.Report(from, to);
+            var results = await _service.RentReport(from, to);
 
             return Ok(results);
         }
@@ -93,6 +88,5 @@ namespace TheHopeless.API.Controllers
         {
             return new Uri(Url.Link(nameof(RoutingEnum.GetRentalAgreement), new { id = id }));
         }
-
     }
 }
