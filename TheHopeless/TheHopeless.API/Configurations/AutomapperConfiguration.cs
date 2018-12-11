@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using TheHopeless.API.Contracts.ProductController;
+using TheHopeless.API.Contracts.RentalController;
 using TheHopeless.API.Database.Entities.ProductControl;
+using TheHopeless.API.Database.Entities.RentalControl;
 using Attribute = TheHopeless.API.Database.Entities.ProductControl.Attribute;
 
 namespace TheHopeless.API.Configurations
@@ -23,6 +25,8 @@ namespace TheHopeless.API.Configurations
                     opt => opt.MapFrom(y => y.Pictures.Select(z => new PictureDto() {PictureId = z.Id})));
             CreateMap<ProductAttribute, ProductAttributeDto>(MemberList.None);
             CreateMap<Attribute, AttributeDto>(MemberList.None);
+            CreateMap<RentalAgreement, RentalAgreementDto>(MemberList.None);
+            CreateMap<RentalPaymentType, RentalPaymentTypeDto>(MemberList.None);
         }
 
 
