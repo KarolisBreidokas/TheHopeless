@@ -14,6 +14,10 @@ namespace TheHopeless.API.Controllers
     public class PaymentController : ControllerBase
     {
         private readonly IPaymentService _service;
+        public PaymentController(IPaymentService service)
+        {
+            _service = service;
+        }
         
         [Produces(typeof(ICollection<RentalPaymentTypeDto>))]
         public async Task<IActionResult> GetPaymentMethodList()

@@ -13,6 +13,10 @@ namespace TheHopeless.API.Controllers
     public class RentalController : ControllerBase
     {
         private IRentalService _service;
+        public RentalController(IRentalService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
 

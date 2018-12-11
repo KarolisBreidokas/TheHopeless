@@ -6,7 +6,7 @@ using TheHopeless.API.Contracts.RentalController;
 
 namespace TheHopeless.API.Services
 {
-    interface IPaymentService
+    public interface IPaymentService
     {
         Task<ICollection<RentalPaymentTypeDto>> GetPaymentMethodList();
         Task<bool> ChangeMethodState(int id, bool state);
