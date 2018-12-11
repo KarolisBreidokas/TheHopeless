@@ -1,7 +1,11 @@
-﻿namespace TheHopeless.API.Contracts.ProductController
+﻿using TheHopeless.API.Constants;
+
+namespace TheHopeless.API.Contracts.ProductController
 {
     public class PictureDto
     {
-        public int PictureId;
+        public int Id;
+        public bool Main;
+        public MimeType Type;
     }
 }
