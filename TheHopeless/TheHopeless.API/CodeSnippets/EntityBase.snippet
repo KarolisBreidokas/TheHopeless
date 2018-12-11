@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Relation Base</Title>
+      <Author>ThineSelf</Author>
+      <Description>Creates Entity definiton carcas</Description>
+      <Shortcut>relation</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+         
+            entity.HasMany(x => $Collection$)
+                .WithOne(x => $Fentity$)
+                .HasForeignKey(x => $FK$)
+                .OnDelete($type$);
+    ]]>
+      </Code>
+      <Declarations>
+        <Object>
+          <ID>Collection</ID>
+          <ToolTip>Collection Object</ToolTip>
+          <Type>System.Collections.Generic.ICollection </Type>
+        </Object>
+        <Object>
+          <ID>Fentity</ID>
+        </Object>
+        <Object>
+          <ID>type</ID>
+          <ToolTip>ID of entiy</ToolTip>
+        </Object>
+        <Object>
+          <ID>FK</ID>
+          <ToolTip>ID of entiy</ToolTip>
+          <Type>Microsoft.EntityFrameworkCore.DeleteBehavior</Type>
+        </Object>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

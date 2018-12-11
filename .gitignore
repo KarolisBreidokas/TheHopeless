@@ -1,3 +1,4 @@
+﻿
 .DS_STORE
 
 /dist/
@@ -29,3 +30,4 @@ yarn-error.log
 
 # rollup-test output
 /modules/rollup-test/dist/
+/TheHopeless/.vs/TheHopeless
