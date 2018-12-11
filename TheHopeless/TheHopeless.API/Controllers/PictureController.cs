@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.FileProviders;
 using TheHopeless.API.Constants;
 using TheHopeless.API.Services;
 
@@ -31,14 +29,25 @@ namespace TheHopeless.API.Controllers
             return File(entity.Data, entity.Type.GetString());
         }
 
-        [HttpPost("{id}/{ture}")]
+        [HttpPost("{id}/{main}")]
         //[Route("user/PostUserImage")]  
-        public async Task<IActionResult> Post(int id, int ture)
+        public async Task<IActionResult> Post(int id, bool main)
         {
             var type = MimeTypeBuilder.GeMimeType(HttpContext.Request.ContentType);
 
-            var t= await _service.PostPicture(id, ture!=0, type, Request.Body);
+            var t= await _service.PostPicture(id, main, type, Request.Body);
             return Ok(t);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await _service.DeletePicure(id))
+            {
+                return Ok();
+            }
+
+            return NotFound();
         }
 
     }
