@@ -23,6 +23,10 @@ namespace TheHopeless.API.Configurations
                     opt => opt.MapFrom(y => y.Pictures.Select(z => new PictureDto() {PictureId = z.Id})));
             CreateMap<ProductAttribute, ProductAttributeDto>(MemberList.None);
             CreateMap<Attribute, AttributeDto>(MemberList.None);
+            CreateMap<NewProductDto, Product>(MemberList.None)
+                .ForMember(x => x.Values, opt => opt.MapFrom(y => y.Attributes));
+            CreateMap<NewProductAttributeDto, ProductAttribute>(MemberList.None);
+            CreateMap<AttributeDto, Attribute>(MemberList.None);
         }
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TheHopeless.API.Contracts.ProductController;
 using TheHopeless.API.Database;
 using TheHopeless.API.Database.Entities.ProductControl;
-
+using Attribute = TheHopeless.API.Database.Entities.ProductControl.Attribute;
 
 
 namespace TheHopeless.API.Services.Implementations
@@ -16,12 +16,14 @@ namespace TheHopeless.API.Services.Implementations
     {
         private readonly EshopDbContext _context;
         private readonly DbSet<Product> _products;
+        private readonly DbSet<Attribute> _attributes;
         private readonly IMapper _mapper;
-        public ProductService(EshopDbContext context, Mapper mapper)
+        public ProductService(EshopDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
             _products = context.Products;
+            _attributes = context.Attributes;
         }
         
         public async Task<ICollection<ProductDto>> Get()
@@ -45,10 +47,24 @@ namespace TheHopeless.API.Services.Implementations
         public async Task<ProductDto> Add(NewProductDto newProduct)
         {
             var entity = _mapper.Map<Product>(newProduct);
+            await MapAttriubes(entity.Values);
             _products.Add(entity);
             await _context.SaveChangesAsync();
             return _mapper.Map<ProductDto>(entity); ;
 
+        }
+
+        private async Task MapAttriubes(ICollection<ProductAttribute> entityValues)
+        {
+            foreach (var attribute in entityValues)
+            {
+                var dbattribute =await _attributes.FirstOrDefaultAsync(x => x.Name == attribute.Attribute.Name);
+                if (!(dbattribute is null))
+                {
+                    attribute.AttributeId = dbattribute.Id;
+                    attribute.Attribute = null;
+                }
+            }
         }
 
         public async Task<ProductDto> Edit(int id, NewProductDto product)
@@ -61,7 +77,7 @@ namespace TheHopeless.API.Services.Implementations
 
             _context.Update(entity);
             _mapper.Map(product, entity);
-            
+            await MapAttriubes(entity.Values);
             await _context.SaveChangesAsync();
             return _mapper.Map<ProductDto>(entity);
         }
