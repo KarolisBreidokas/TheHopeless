@@ -21,7 +21,8 @@ namespace TheHopeless.API.Configurations
 
         public static IServiceCollection AddApplicationDependencies(this IServiceCollection service)
         {
-            return service.AddScoped<IProductService, ProductService>();
+            return service.AddScoped<IProductService, ProductService>()
+                .AddScoped<IPictureService, PictureService>();
         }
 
     }

@@ -12,7 +12,12 @@ namespace TheHopeless.API.Controllers
     [ApiController]
     public class RentalController : ControllerBase
     {
-        private IRentalService _service;
+        private readonly IRentalService _service;
+
+        public RentalController(IRentalService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
 
@@ -65,6 +70,7 @@ namespace TheHopeless.API.Controllers
             }
             return NotFound(id);
         }
+        [HttpGet("Payments")]
         [Produces(typeof(ICollection<RentalPaymentTypeDto>))]
         public async Task<IActionResult> GetPayment()
         {
@@ -81,11 +87,11 @@ namespace TheHopeless.API.Controllers
             }
             return NotFound(id);
         }
-        [HttpGet("{from}-{to}", Name = nameof(RoutingEnum.GetRentalReport))]
+        [HttpGet("report", Name = nameof(RoutingEnum.GetRentalReport))]
         [Produces(typeof(ICollection<RentalAgreementDto>))]
-        public async Task<IActionResult> Report(int from, int to)
+        public async Task<IActionResult> Report([FromBody] ReportDto report)
         {
-            var results = await _service.Report(from, to);
+            var results = await _service.Report(report.From, report.To);
 
             return Ok(results);
         }
@@ -94,5 +100,11 @@ namespace TheHopeless.API.Controllers
             return new Uri(Url.Link(nameof(RoutingEnum.GetRentalAgreement), new { id = id }));
         }
 
+    }
+
+    public class ReportDto
+    {
+        public int From;
+        public int To;
     }
 }

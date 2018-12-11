@@ -10,7 +10,7 @@ namespace TheHopeless.API.Database.Entities.ProductControl
 
         //attributes
         public string Name { get; set; }
-        public int Count { get; set; }
+        public int ProductCount { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
         public bool Sellable { get; set; }

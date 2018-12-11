@@ -13,7 +13,12 @@ namespace TheHopeless.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private IProductService _service;
+        private readonly IProductService _service;
+
+        public ProductController(IProductService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
         
