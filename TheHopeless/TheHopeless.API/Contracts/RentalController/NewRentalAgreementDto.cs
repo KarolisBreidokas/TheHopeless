@@ -7,6 +7,11 @@ namespace TheHopeless.API.Contracts.RentalController
 {
     public class NewRentalAgreementDto
     {
-        public RentalPaymentTypeDto PaymentType;
+        public DateTime LoanPeriodStart;
+        public DateTime LoanPeriodEnd;
+        public decimal Price;
+        public decimal Deposit;
+        public int PaymentTypeId;
+        public int ProductId;
     }
 }

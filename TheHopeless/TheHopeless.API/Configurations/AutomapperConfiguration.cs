@@ -27,6 +27,8 @@ namespace TheHopeless.API.Configurations
             CreateMap<Attribute, AttributeDto>(MemberList.None);
             CreateMap<RentalAgreement, RentalAgreementDto>(MemberList.None);
             CreateMap<RentalPaymentType, RentalPaymentTypeDto>(MemberList.None);
+            CreateMap<RentalPaymentTypeDto, RentalPaymentType>(MemberList.None);
+            CreateMap<NewRentalAgreementDto, RentalAgreement>(MemberList.None);
         }
 
 
