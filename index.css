@@ -159,3 +159,29 @@ h1{
     font-weight: bold;
     color:rgb(194, 103, 0);
 }
+
+.col-3 button{
+    width:200px;
+}
+
+.col-3 form input{
+	margin-top:10px;
+}
+
+.col-3 form button{
+	margin-top:10px;
+}
+
+.col-3 h1{
+    width:200px;
+    margin-left:105px;
+    
+}
+
+#buttonRental{
+    margin-left:30px;
+}
+
+#buttonBuy{
+    margin-left:14px;
+}
