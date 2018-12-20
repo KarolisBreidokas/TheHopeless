@@ -27,7 +27,31 @@ session_start();
                     </form>
             </div>
 
-                
+                <table id="rentList">
+                <tr>
+                    <td>Product name</td>
+                    <td>Product model</td>
+                    <td>Client</td>
+                </tr>
+                <?php
+                $query = "SELECT id, product_id, renter FROM rents";
+                $result = conn->query($query);
+                if($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $p_id = $result['product_id'];
+                    $query = "SELECT alias, model FROM products WHERE id = {$p_id}";
+                    $product = conn->query($query);
+?>
+                <tr>
+                    <td><?=$product[0]['alias']?></td>
+                    <td><?=$product[0]['model']?></td>
+                    <td><?=$result[0]['renter']?></td>
+                </tr>
+<?php
+                    }
+                }
+                ?>
+                </table>
                           
 
 
