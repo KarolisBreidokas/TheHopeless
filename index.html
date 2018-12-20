@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
-        <script src="webController.js"></script>
         <title>E-SHOP</title>
     </head>
     <body>
@@ -18,32 +17,18 @@
                     <a href="includes/about.inc.html">About</a>
                 </div>
                 <form>
-                        <input class="login" type="text" placeholder="Email">
-                        <input class="login" type="password" placeholder="Password">
-                        <button type="button" id="buttonLogin">Login</button>
-                        <button id="buttonRegister"><a href="register.html">Register</a></button>
-                    </form>
-                
+                    <input type="text" value="Email">
+                    <input type="password" value="Password">
+                    <button type="submit">Login</button>
+                    <button>Register</button>
+                </form>
             </div>
 
             <div class="row">
                 <div class="col-3">
                     <div class="container" id="productList">
                         <h1>PRODUCTS</h1>
-                        <table id="productTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Sellable</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               
-                            </tbody>
-                            <button id="buttonRental">RENT</button>
+                        <table id="productTable">
 
                         </table>
                         
@@ -53,7 +38,7 @@
                     <div class="container" id="catalog">
                         <h1>CATALOG</h1>
                         <table id="catalogTable">
-                            <img src="./images/0.jpg" id="catalogImage">
+
                         </table>
 
                     </div>
@@ -63,7 +48,6 @@
                         <h1>CART</h1>
                         <table id="cartTable">
                             
-                            <button id="buttonBuy">BUY</button>
                         </table>
 
                     </div>
@@ -71,19 +55,19 @@
             </div>
             <div class="row" id="adminPanel">
                 <div class="col">
-                    <button id="buttonAcounts">Accounts</button> 
+                    <button>Accounts</button> 
                 </div>
                 <div class="col">
-                    <button id="buttonRent">Rent Accounts</button> 
+                    <button>Rent Accounts</button> 
                 </div>
                 <div class="col">
-                    <button id="buttonTransport">Assign Transport</button>
+                    <button>Assign Transport</button>
                 </div>
                 <div class="col">
-                    <button id="buttonMissing">Missing Product Account</button>
+                    <button>Missing Product Account</button>
                 </div>
                 <div class="col">
-                    <button id="buttonDelivery">Delivery Info</button>
+                    <button>Delivery Info</button>
                 </div>
             </div>
 

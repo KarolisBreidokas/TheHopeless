@@ -1,0 +1,14 @@
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\bin\Debug\netcoreapp2.1\TheHopeless.API.deps.json
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\bin\Debug\netcoreapp2.1\TheHopeless.API.runtimeconfig.json
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\bin\Debug\netcoreapp2.1\TheHopeless.API.runtimeconfig.dev.json
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\bin\Debug\netcoreapp2.1\TheHopeless.API.dll
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\bin\Debug\netcoreapp2.1\TheHopeless.API.pdb
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.csprojAssemblyReference.cache
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.csproj.CoreCompileInputs.cache
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.RazorAssemblyInfo.cache
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.RazorAssemblyInfo.cs
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.AssemblyInfoInputs.cache
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.AssemblyInfo.cs
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.RazorTargetAssemblyInfo.cache
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.dll
+D:\University\IS Essiantials\frontend\TheHopeless\TheHopeless\TheHopeless.API\obj\Debug\netcoreapp2.1\TheHopeless.API.pdb
