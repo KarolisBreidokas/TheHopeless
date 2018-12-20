@@ -1,100 +1,220 @@
-*
-{
-    margin:0;
-    padding: 0;
+.container-fluid{
+    justify-content: space-between;
+    justify-self: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("background.jpg");
 }
 
-header{
-    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+
+.container-fluid .row .topnov{
+    float: left;
+    margin-top:20px;
+    margin-left:20px;
+    overflow: hidden;
 }
 
-.main-nav{
-    float:right;
-    list-style: none;
-    margin-top:30px;
-}
-
-.main-nav li{
-    display: inline-block;
-}
-
-.main-nav li a{
-    color: white;
+.container-fluid .row .topnov a{ 
+    float: left;
+    background-color: none;
+    border-style:solid;
+    border-width:2px;
+    border-radius:5%;
+    border-color:rgb(194, 103, 0);
+    color: rgb(194, 103, 0);
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+    min-width: 80px;
     text-decoration: none;
-    padding:5px 21px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-right:20px;
+    font-weight: bold;
 }
 
-.main-nav li.active a{
-    border: 1px solid #db5d14;
+.container-fluid .row .topnov a:hover{
+    background-color: rgb(194, 103, 0);
+    color: white;
 }
 
-.main-nav li a:hover{
-    border:1px solid #db5d14;
+.container-fluid .row .topnov a.active{
+    background-color: rgb(194, 103, 0);
+    color: white;
 }
 
-.logo img{
-    width: 250px;
-    height: auto;
-    margin-top: 30px;
-    float:left;
+.container-fluid .row form{
+    float: right;
+    margin-left:auto;
+    margin-top:20px;
+    margin-right:20px;
+    margin-bottom: 20px;
 }
 
-body{
-    font-family: monospace;
+.container-fluid .row form input{
+    background-color: none;
+    border-style:solid;
+    border-width:2px;
+    border-radius:5%;
+    border-color:rgb(194, 103, 0);
+    padding-top:5px;
+    padding-bottom: 5px;
+    min-width: 200px;
+    color: rgb(194, 103, 0);
+    background:transparent;
+    margin-right:20px;
+
 }
 
-.row{
-    max-width: 1200px;
-    margin: auto;
+#adressInput{
+    background-color: none;
+    border-style:solid;
+    border-width:2px;
+    border-radius:5%;
+    border-color:rgb(194, 103, 0);
+    padding-top:5px;
+    padding-bottom: 5px;
+    min-width: 200px;
+    color: rgb(194, 103, 0);
+    background:transparent;
+    margin-bottom: 10px;
+
 }
 
-.hero{
-    position: absolute;
-    width: 1200px;
-    margin-left: auto;
-    margin-top: 50px;
+.container-fluid .row form button{
+    background-color: none;
+    border-style:solid;
+    border-width:2px;
+    border-radius:5%;
+    border-color:rgb(194, 103, 0);
+    padding-top:5px;
+    padding-bottom: 5px;
+    min-width: 100px;
+    color: rgb(194, 103, 0);
+    background:transparent;
+    margin-right:20px;
+}
+
+.container-fluid .row form button:hover{
+    background-color: rgb(194, 103, 0);
+    color:white;
+}
+
+#adminPanel{
+    position: fixed;
+    bottom:0;
+    width:100%;
+    margin-left: 20px;
+}
+
+
+button{
+    background-color: none;
+    border-style:solid;
+    border-width:2px;
+    border-radius:5%;
+    border-color:rgb(194, 103, 0);
+    padding-top:5px;
+    padding-bottom: 5px;
+    min-width: 100px;
+    color: rgb(194, 103, 0);
+    background:transparent;
+    margin-right:20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: rgb(194, 103, 0);
+    color:white;
+}
+
+#productList{
+    border-style:solid;
+    border-width: 2px;
+    border-radius:none;
+    border-color:white;
+    text-align: center;
+    min-height: 100%;
+    max-height: 80vh;
+    overflow-y:auto;
 }
 
 h1{
-    color:white;
-    text-transform: uppercase;
-    font-size: 70px;
+    border-bottom: 2px;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-style:solid;
+    border-color: white;
+}
+
+#catalog{
+    border-style:solid;
+    border-width: 2px;
+    border-radius:none;
+    border-color:white;
     text-align: center;
-    margin-top:180px;
+    min-height: 100%;
+    max-height: 80vh;
+    overflow-y:auto;
 }
 
-.button{
-    margin-top:30px;
-    margin-left:440px;
+#orderedProducts{
+    border-style:solid;
+    border-width: 2px;
+    border-radius:none;
+    border-color:white;
+    text-align: center;
+    min-height: 100%;
+    max-height: 80vh;
+    overflow-y:auto;
 }
 
-.btn {
-    border:1px solid white;
-    padding: 10px 30px;
-    color: white;
-
-    text-decoration: none;
-    margin-right: 5px;
-    font-size: 13px;
-    text-transform: uppercase;
+.row{
+    text-align:center;
+    font-weight: bold;
+    color:rgb(194, 103, 0);
 }
 
-.btn-one{
-    background-color: #db5d14;
-    font-family:"Roboto", sans-serif;
+.col-3 button{
+    width:200px;
 }
 
-.btn-two{
-    font-family: "Roboto", sans-serif;
+.col-3 form input{
+	margin-top:10px;
 }
 
-.btn-two:hover{
-    background-color: #db5d14;
-    transition: all 0.5s ease-in;
+.col-3 form button{
+	margin-top:10px;
 }
 
+.col-3 h1{
+    width:200px;
+    margin-left:105px;
+    
+}
+
+#buttonRental{
+    margin-left:30px;
+}
+
+#buttonBuy{
+    margin-left:14px;
+}
+
+.inputRadio{
+
+        background-color: none;
+        border-style:solid;
+        border-width:2px;
+        border-radius:5%;
+        border-color:rgb(255, 255, 255);
+        padding-top:5px;
+        padding-bottom: 5px;
+        min-width: 200px;
+        color: rgb(194, 103, 0);
+        background:transparent;
+        margin-right:20px;
+    
+    
+}
